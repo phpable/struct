@@ -107,6 +107,39 @@ echo $Data['field2'];
 //> 2
 ```
 
+### Inheritance
+
+The inheritance level is not limited. It means we can have as extensive hierarchy as we really need it. 
+All fields defined at parent classes are also accessible at child classes.
+
+```php
+use \Eggbe\Struct;
+
+class MyParentStruct extends AStruct {
+
+	protected static $Prototype = ['field1', 'field2'];
+}
+
+class MyChildStruct extends MyParentStruct {
+
+	protected static $Prototype = ['field3'];
+}
+``` 
+
+And somewhere in another place: 
+
+```php
+$Struct = new MyChildStruct([1,2,3]);
+
+echo $Struct->field1;
+echo $Struct->field2;
+echo $Struct->field3;
+
+//> 1
+//> 2
+//> 3
+```
+
 
 ### Advanced
 
