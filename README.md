@@ -94,7 +94,8 @@ echo $Struct->field2;
 //> The mutated via getter value is: 2
 ```
 
-The major difference between setters and getters is shown via the next code. It based on the class definition from the previous sample.
+The easist way to illustrate the major difference between setters and getters it's to write the simple code bellow. 
+It  will based on the class definition from the previous sample.
 
 ```php
 $Data = $Struct->toArray();
