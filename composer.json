@@ -1,0 +1,23 @@
+{
+	"name": "eggbe/struct",
+	"version": "0.1.0",
+	"type": "library",
+	"keywords": ["structures", "struct", "php-struct", "structures emulation", "structure-like"],
+	"description": "Struct features emulation for php.",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "hacpaka",
+			"email": "hacpaka@eggbe.com"
+		}
+	],
+	"require": {
+		"php": ">=7.0.0",
+		"eggbe/files": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"Eggbe\\Struct\\": "src/"
+		}
+	}
+}
