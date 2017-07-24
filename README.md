@@ -90,8 +90,8 @@ $Struct = new MyStruct([1,2]);
 echo $Struct->field1;
 echo $Struct->field2;
 
-//> This mutated via setter value is: 1
-//> This mutated via getter value is: 2
+//> The mutated via setter value is: 1
+//> The mutated via getter value is: 2
 ```
 
 ### Advanced
