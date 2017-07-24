@@ -94,6 +94,19 @@ echo $Struct->field2;
 //> The mutated via getter value is: 2
 ```
 
+The major difference between setters and getters is shown via the next code. It based on the class definition from the previous sample.
+
+```php
+$Data = $Struct->toArray();
+
+echo $Data['field1'];
+echo $Data['field2'];
+
+//> The mutated via setter value is: 1
+//> 2
+```
+
+
 ### Advanced
 
 To retrieve all structure keys: 
