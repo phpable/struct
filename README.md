@@ -160,6 +160,9 @@ To retrieve all structure data as an array:
 $Struct->toArray();
 ```
 
+Of course you always can override an mutator via common way. 
+
+
 ## Authors
 Made with love at [Eggbe](http://eggbe.com).
 
