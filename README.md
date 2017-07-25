@@ -160,6 +160,11 @@ To retrieve all structure data as an array:
 $Struct->toArray();
 ```
 
+To get a structure fields count:
+```php
+$Struct->count();
+```
+
 Of course you always can override any mutator via common way. 
 
 

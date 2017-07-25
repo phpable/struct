@@ -3,6 +3,7 @@ namespace Eggbe\Struct;
 
 use \Eggbe\Prototype\IGettable;
 use \Eggbe\Prototype\ISettable;
+use \Eggbe\Prototype\ICountable;
 use \Eggbe\Prototype\TMutatable;
 use \Eggbe\Prototype\IArrayable;
 use \Eggbe\Prototype\TAggregatable;
@@ -119,6 +120,13 @@ abstract class AStruct
 	 */
 	public final function toArray(): array {
 		return $this->Data;
+	}
+
+	/**
+	 * @return int
+	 */
+	public final function count():int {
+		return count($this->Data);
 	}
 }
 
