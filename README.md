@@ -9,17 +9,15 @@ This is the lightweight library to emulate structures in PHP.
 
 
 ## Features 
-Unfortunately the most of the known realisations in this area are based on the dynamical fields definition directly at runtime. 
+Unfortunately the most of known realisations are based on the runtime dynamical fields definition. 
 We think it makes structures absolutely unusable because in this case the type hinting is impossible. 
 
-Also we have found few realisations that are free from this shortcoming but at the same time 
-they tend to use object properties for the structures fields behavior emulation. We believe this method is bad 
-because sometimes we haven't any regular way to detect the visibility of an object property.
-It can cause additional problems and make a code completely unsupported. 
+Some other realisations are free from this shortcoming but als they tend to use object properties for the structures fields behavior emulation. 
+We believe this method is bad because sometimes it's impossible to detect the visibility of an arbitrary object property. 
+It can cause additional problems and make a code completely unsupported.
 
-So from our point of view we made this realisation of the structures functionality by the only possible way. 
-But of course if you don't share our beliefs you always can find another one package with the similar functionality. 
-
+So from our point of view we have realised the structures functionality by the only possible way. 
+But of course if you don't share our beliefs you always can find another one package with the similar functionality.
 
 ## Install
 Here's the simpler way to install the Eggbe/Struct package via [composer](http://getcomposer.org):
