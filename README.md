@@ -1,23 +1,24 @@
 ## Introduction
-This is the lightweight library to emulate structures in PHP. 
+The lightweight library to emulate structures in PHP. 
 
 
 ## Requirements
-* PHP >= 7.0.0
+* PHP >= 7.1.0
 * [Eggbe/Helpers](https://github.com/eggbe/helpers)
 * [Eggbe/Prototype](https://github.com/eggbe/prototype)
 
 
 ## Features 
-Unfortunately the most of known realisations are based on the runtime dynamical fields definition. 
-We think it makes structures absolutely unusable because in this case the type hinting is impossible. 
+Unfortunately, the most of known realizations are based on the runtime dynamical fields definition. 
+We think it makes structures absolutely unusable because in this case, the type hinting is impossible. 
 
-Some other realisations are free from this shortcoming but als they tend to use object properties for the structures fields behavior emulation. 
+Some other realizations are free from this shortcoming but also they tend to use object properties for the structures fields behavior emulation. 
 We believe this method is bad because sometimes it's impossible to detect the visibility of an arbitrary object property. 
+
 It can cause additional problems and make a code completely unsupported.
 
-So from our point of view we have realised the structures functionality by the only possible way. 
-But of course if you don't share our beliefs you always can find another one package with the similar functionality.
+So from our point of view, we have realized the structures functionality in the only possible way. 
+But of course, if you don't share our beliefs you always can find another one package with the similar functionality.
 
 ## Install
 Here's the simpler way to install the Eggbe/Struct package via [composer](http://getcomposer.org):
@@ -44,12 +45,24 @@ class MyStruct extends AStruct {
 And somewhere in another place: 
 
 ```php
-$Struct = new MyStruct([1,2]);
+$Struct = new MyStruct(1,2);
 
 echo $Struct->field1;
 
 //> 1
 ```
+
+An alternate way of istant initialization is also possible:
+
+```php
+$Struct = new MyStruct([1, 2]);
+
+echo $Struct->field1;
+
+//> 1
+```
+
+Of course, we also can fill fields later:
 
 ```php
 $Struct = new MyStruct();
@@ -83,7 +96,7 @@ class MyStruct extends AStruct {
 And somewhere in another place: 
 
 ```php
-$Struct = new MyStruct([1,2]);
+$Struct = new MyStruct(1,2);
 
 echo $Struct->field1;
 echo $Struct->field2;
@@ -104,6 +117,7 @@ echo $Data['field2'];
 //> The mutated via setter value is: 1
 //> 2
 ```
+
 
 ### Inheritance
 
@@ -127,7 +141,7 @@ class MyChildStruct extends MyParentStruct {
 And somewhere in another place: 
 
 ```php
-$Struct = new MyChildStruct([1,2,3]);
+$Struct = new MyChildStruct(1,2,3);
 
 echo $Struct->field1;
 echo $Struct->field2;

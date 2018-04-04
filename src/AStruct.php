@@ -30,24 +30,24 @@ abstract class AStruct
 	private $Data = [];
 
 	/**
-	 * @param array $Values
+	 * @param mixed $args, ...
 	 * @throws \Exception
 	 */
-	public function __construct(array $Values = []) {
+	public function __construct($args = []) {
 		$this->Data = Arr::combine(array_map(function($name) {
 			if (preg_match('/^' . Reglib::VAR . '$/', $name)) {
 				return strtolower($name);
 			}
 
 			throw new \Exception('Invalid or empty structure field name!');
-		}, static::aggregate('Prototype')));
+		}, $Aggregated  = static::aggregate('Prototype')));
 
 		/**
 		 * Fill structure fields by given values.
 		 * Mutators are fully accessible here so no reason to worry.
 		 */
-		foreach (array_values(array_slice($Values, 0, count(static::$Prototype))) as $index => $value){
-			$this->__set(Arr::val(static::$Prototype, $index), $value);
+		foreach (array_values(array_slice(Arr::simplify(func_get_args()), 0, count($Aggregated))) as $index => $value){
+			$this->__set(Arr::val($Aggregated, $index), $value);
 		}
 	}
 
