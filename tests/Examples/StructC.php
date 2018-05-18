@@ -1,5 +1,5 @@
 <?php
-namespace Eggbe\Struct\Tests\Examples;
+namespace Able\Struct\Tests\Examples;
 
 class StructC extends StructB {
 

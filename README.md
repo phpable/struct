@@ -1,30 +1,28 @@
 ## Introduction
-The lightweight library to emulate structures in PHP. 
+The lightweight library to emulate struct data type in PHP. 
 
 
 ## Requirements
 * PHP >= 7.1.0
 * [Eggbe/Helpers](https://github.com/eggbe/helpers)
-* [Eggbe/Prototype](https://github.com/eggbe/prototype)
+* [Able/Prototypes](https://github.com/phpable/prototypes)
 
 
 ## Features 
-Unfortunately, the most of known realizations are based on the runtime dynamical fields definition. 
-We think it makes structures absolutely unusable because in this case, the type hinting is impossible. 
-
-Some other realizations are free from this shortcoming but also they tend to use object properties for the structures fields behavior emulation. 
-We believe this method is bad because sometimes it's impossible to detect the visibility of an arbitrary object property. 
-
-It can cause additional problems and make a code completely unsupported.
-
-So from our point of view, we have realized the structures functionality in the only possible way. 
-But of course, if you don't share our beliefs you always can find another one package with the similar functionality.
+The most of existing realizations in this area based on the dynamical fields definition 
+directly during the runtime. Unfortunately, it makes structures unusable so far as negates 
+the type hinting ability. Using object properties as a way to emulate the behavior 
+of structure fields is also inapplicable because php has none obvious way to detect 
+visibility of an object property. Also, It tends to cause additional problems 
+and makes code hard to maintain. The mission of this library is to provide 
+another one realization of the structures behavior emulation but make it free 
+of known disadvantages.  
 
 ## Install
 Here's the simpler way to install the Eggbe/Struct package via [composer](http://getcomposer.org):
 
 ```bash
-composer require eggbe/struct
+composer require able/struct
 ```
 
 
@@ -34,7 +32,7 @@ composer require eggbe/struct
 Now you can use the library features anywhere in the code:
 
 ```php
-use \Eggbe\Struct;
+use \Able\Struct;
 
 class MyStruct extends AStruct {
 
@@ -52,7 +50,7 @@ echo $Struct->field1;
 //> 1
 ```
 
-An alternate way of istant initialization is also possible:
+An alternate way of instant initialization is also possible:
 
 ```php
 $Struct = new MyStruct([1, 2]);
@@ -74,10 +72,11 @@ echo $Struct->field1;
 ```
 
 ### Mutators
-If you need to customize the standard structure behavior well mutators are all you need. 
-
+If you need to customize the structure behavior, well mutators are 
+the thing you need. 
+ 
 ```php
-use \Eggbe\Struct;
+use \Able\Struct;
 
 class MyStruct extends AStruct {
 
@@ -105,8 +104,8 @@ echo $Struct->field2;
 //> The mutated via getter value is: 2
 ```
 
-The easist way to illustrate the major difference between setters and getters it's to write the simple code bellow. 
-It  will based on the class definition from the previous sample.
+The easiest way to illustrate the difference between setters and getters it's 
+to write the simple code below. It will be based on the class definition from the previous sample.
 
 ```php
 $Data = $Struct->toArray();
@@ -121,11 +120,13 @@ echo $Data['field2'];
 
 ### Inheritance
 
-The inheritance level is not limited. It means we can have as extensive hierarchy as we really need it. 
-All fields defined at parent classes are also accessible at child classes.
+The level of inheritance is not limited. It means you can have the as extensive 
+hierarchy as you really need.  It also guarantees that all fields defined at parent 
+classes will also be accessible at child classes.
+
 
 ```php
-use \Eggbe\Struct;
+use \Able\Struct;
 
 class MyParentStruct extends AStruct {
 
@@ -167,25 +168,22 @@ To retrieve all structure values:
 $Struct->values();
 ```
 
-To retrieve all structure data as an array:
+To copy all data into an array:
 ```php
 $Struct->toArray();
 ```
 
-To get a structure fields count:
+To get a fields count:
 ```php
 $Struct->count();
 ```
-
-Of course you always can override any mutator via common way. 
-
 
 ## Authors
 Made with love at [Eggbe](http://eggbe.com).
 
 ## Feedback 
 We always welcome your feedback at [github@eggbe.com](mailto:github@eggbe.com).
-
+s
 
 ## License
-This package is released under the [MIT license](https://github.com/eggbe/struct/blob/master/LICENSE).
+This package is released under the [MIT license](https://github.com/phpable/struct/blob/master/LICENSE).

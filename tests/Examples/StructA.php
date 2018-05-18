@@ -1,7 +1,7 @@
 <?php
-namespace Eggbe\Struct\Tests\Examples;
+namespace Able\Struct\Tests\Examples;
 
-use \Eggbe\Struct\AStruct;
+use \Able\Struct\AStruct;
 
 class StructA extends AStruct {
 

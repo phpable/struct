@@ -1,11 +1,11 @@
 <?php
-namespace Eggbe\Struct\Tests;
+namespace Able\Struct\Tests;
 
 use \PHPUnit\Framework\TestCase;
-use \Eggbe\Struct\Tests\Examples\StructA;
-use \Eggbe\Struct\Tests\Examples\StructB;
-use \Eggbe\Struct\Tests\Examples\StructC;
-use \Eggbe\Struct\Tests\Examples\StructD;
+use \Able\Struct\Tests\Examples\StructA;
+use \Able\Struct\Tests\Examples\StructB;
+use \Able\Struct\Tests\Examples\StructC;
+use \Able\Struct\Tests\Examples\StructD;
 
 class MainTest extends TestCase {
 

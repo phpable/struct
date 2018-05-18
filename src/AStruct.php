@@ -1,12 +1,12 @@
 <?php
-namespace Eggbe\Struct;
+namespace Able\Struct;
 
-use \Eggbe\Prototype\IGettable;
-use \Eggbe\Prototype\ISettable;
-use \Eggbe\Prototype\ICountable;
-use \Eggbe\Prototype\TMutatable;
-use \Eggbe\Prototype\IArrayable;
-use \Eggbe\Prototype\TAggregatable;
+use \Able\Prototypes\IGettable;
+use \Able\Prototypes\ISettable;
+use \Able\Prototypes\ICountable;
+use \Able\Prototypes\TMutatable;
+use \Able\Prototypes\IArrayable;
+use \Able\Prototypes\TAggregatable;
 
 use \Eggbe\Reglib\Reglib;
 use \Eggbe\Helper\Arr;
