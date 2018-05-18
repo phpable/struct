@@ -19,7 +19,7 @@ another one realization of the structures behavior emulation but make it free
 of known disadvantages.  
 
 ## Install
-Here's the simpler way to install the Eggbe/Struct package via [composer](http://getcomposer.org):
+Here's the simpler way to install the Able/Struct package via [composer](http://getcomposer.org):
 
 ```bash
 composer require able/struct
@@ -183,7 +183,6 @@ Made with love at [Eggbe](http://eggbe.com).
 
 ## Feedback 
 We always welcome your feedback at [github@eggbe.com](mailto:github@eggbe.com).
-s
 
 ## License
 This package is released under the [MIT license](https://github.com/phpable/struct/blob/master/LICENSE).
