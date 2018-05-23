@@ -9,7 +9,9 @@ use \Able\Prototypes\IArrayable;
 use \Able\Prototypes\TAggregatable;
 
 use \Eggbe\Reglib\Reglib;
+
 use \Eggbe\Helper\Arr;
+use \Eggbe\Helper\Src;
 
 abstract class AStruct
 	implements IGettable, ISettable, IArrayable {
@@ -43,6 +45,16 @@ abstract class AStruct
 		}, $Aggregated  = static::aggregate('Prototype')));
 
 		/**
+		 * Fill structure by default values.
+		 * The default value can be specified by a specially formatted constant.
+		 */
+		foreach (static::$Prototype as $name){
+			if (!is_null($default = constant(static::class . '::default' . Src::tocm($name) . 'Value'))){
+				$this->Data[$name] = $default;
+			}
+		}
+
+		/**
 		 * Fill structure fields by given values.
 		 * Mutators are fully accessible here so no reason to worry.
 		 */
@@ -50,6 +62,8 @@ abstract class AStruct
 			$this->__set(Arr::val($Aggregated, $index), $value);
 		}
 	}
+
+	const Test1 = 1;
 
 	/**
 	 * Sets a structure field value directly or via the mutators mechanics.
