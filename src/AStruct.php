@@ -49,8 +49,8 @@ abstract class AStruct
 		 * The default value can be specified by a specially formatted constant.
 		 */
 		foreach (static::$Prototype as $name){
-			if (!is_null($default = constant(static::class . '::default' . Src::tocm($name) . 'Value'))){
-				$this->Data[$name] = $default;
+			if (defined($constant = static::class . '::default' . Src::tocm($name) . 'Value')){
+				$this->Data[$name] = constant($constant);
 			}
 		}
 

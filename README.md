@@ -118,6 +118,27 @@ echo $Data['field2'];
 ```
 
 
+### Default values
+If you need to specify default values for structure fields, 
+the well-formed constants can be extremely useful. 
+
+Just take a look at the example below: 
+
+```php
+use \Able\Struct;
+
+class MyParentStruct extends AStruct {
+
+	protected static $Prototype = ['field1', 'field2'];
+	
+	protected const defaultField1Value = "default value for field1";
+	protected const defaultField2Value = "default value for field2";
+}
+```
+
+Please pay attention that constant has to be defined in public or projected scope. 
+
+
 ### Inheritance
 
 The level of inheritance is not limited. It means you can have the as extensive 
