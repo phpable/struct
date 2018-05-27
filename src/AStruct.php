@@ -8,7 +8,7 @@ use \Able\Prototypes\TMutatable;
 use \Able\Prototypes\IArrayable;
 use \Able\Prototypes\TAggregatable;
 
-use \Eggbe\Reglib\Reglib;
+use \Able\Reglib\Reglib;
 
 use \Eggbe\Helper\Arr;
 use \Eggbe\Helper\Src;
