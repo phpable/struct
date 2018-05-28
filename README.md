@@ -29,7 +29,7 @@ composer require able/struct
 ## Usage
 
 ### Basic 
-Now you can use the library features anywhere in the code:
+Now you can use library features anywhere in the code:
 
 ```php
 use \Able\Struct;
