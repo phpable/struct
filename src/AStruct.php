@@ -46,13 +46,8 @@ abstract class AStruct
 
 		/**
 		 * Fill structure by default values.
-		 * The default value can be specified by a specially formatted constant.
 		 */
-		foreach (static::$Prototype as $name){
-			if (defined($constant = static::class . '::default' . Src::tocm($name) . 'Value')){
-				$this->Data[$name] = constant($constant);
-			}
-		}
+		$this->flush();
 
 		/**
 		 * Fill structure fields by given values.
@@ -63,7 +58,22 @@ abstract class AStruct
 		}
 	}
 
-	const Test1 = 1;
+	/**
+	 * @return AStruct
+	 */
+	public function flush(){
+
+		/**
+		 * Fill structure by default values.
+		 * The default value can be specified by a specially formatted constant.
+		 */
+		foreach (static::$Prototype as $name){
+			$this->Data[$name] = defined($constant = static::class
+				. '::default' . Src::tocm($name) . 'Value') ? constant($constant) : null;
+		}
+
+		return $this;
+	}
 
 	/**
 	 * Sets a structure field value directly or via the mutators mechanics.

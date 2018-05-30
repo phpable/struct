@@ -199,6 +199,11 @@ To get a fields count:
 $Struct->count();
 ```
 
+To clean structure fields values and restore its default state:
+```php
+$Struct->flush();
+```
+
 ## Authors
 Made with love at [Eggbe](http://eggbe.com).
 
