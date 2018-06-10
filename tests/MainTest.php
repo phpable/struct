@@ -2,6 +2,7 @@
 namespace Able\Struct\Tests;
 
 use \PHPUnit\Framework\TestCase;
+
 use \Able\Struct\Tests\Examples\StructA;
 use \Able\Struct\Tests\Examples\StructB;
 use \Able\Struct\Tests\Examples\StructC;

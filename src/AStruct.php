@@ -10,8 +10,8 @@ use \Able\Prototypes\TAggregatable;
 
 use \Able\Reglib\Reglib;
 
-use \Eggbe\Helper\Arr;
-use \Eggbe\Helper\Src;
+use \Able\Helpers\Arr;
+use \Able\Helpers\Src;
 
 abstract class AStruct
 	implements IGettable, ISettable, IArrayable {
@@ -54,7 +54,7 @@ abstract class AStruct
 		 * Mutators are fully accessible here so no reason to worry.
 		 */
 		foreach (array_values(array_slice(Arr::simplify(func_get_args()), 0, count($Aggregated))) as $index => $value){
-			$this->__set(Arr::val($Aggregated, $index), $value);
+			$this->__set(Arr::value($Aggregated, $index), $value);
 		}
 	}
 
@@ -69,7 +69,7 @@ abstract class AStruct
 		 */
 		foreach (static::$Prototype as $name){
 			$this->Data[$name] = defined($constant = static::class
-				. '::default' . Src::tocm($name) . 'Value') ? constant($constant) : null;
+				. '::default' . Src::tcm($name) . 'Value') ? constant($constant) : null;
 		}
 
 		return $this;
