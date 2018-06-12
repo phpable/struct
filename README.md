@@ -218,7 +218,7 @@ use \Able\Struct;
  * @property int field1
  * @property string field2
  */
-class MyParentStruct extends AStruct {
+class MyStruct extends AStruct {
 
 	protected static $Prototype = ['field1', 'field2'];
 }
