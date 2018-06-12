@@ -208,7 +208,7 @@ $Struct->flush();
 
 
 ## IDEs support 
-If you use the PHPDoc-friendly IDE you 
+If you use a PHPDoc-friendly IDE you 
 can gain additional advantages by using the syntax below: 
 
 ```php
