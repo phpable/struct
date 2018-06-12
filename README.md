@@ -10,11 +10,13 @@ The lightweight library to emulate struct data type in PHP.
 
 ## Features 
 The most of existing realizations in this area based on the dynamical fields definition 
-directly during the runtime. Unfortunately, it makes structures unusable so far as negates 
-the type hinting ability. Using object properties as a way to emulate the behavior 
+directly during the runtime. Unfortunately, it negates the type-hinting feature and makes 
+structures completely unusable. Using object properties as a way to emulate the behavior 
 of structure fields is also inapplicable because php has none obvious way to detect 
 visibility of an object property. Also, It tends to cause additional problems 
-and makes code hard to maintain. The mission of this library is to provide 
+and makes code hard to maintain.
+
+The mission of this library is to provide 
 another one realization of the structures behavior emulation but make it free 
 of known disadvantages.  
 
@@ -203,6 +205,25 @@ To clean structure fields values and restore its default state:
 ```php
 $Struct->flush();
 ```
+
+
+## IDEs support 
+If you use PHPdoc-friendly IDEAS you 
+can gain additional advantages by using the syntax below: 
+
+```php
+use \Able\Struct;
+
+/**
+ * @property int field1
+ * @property string field2
+ */
+class MyParentStruct extends AStruct {
+
+	protected static $Prototype = ['field1', 'field2'];
+}
+```
+
 
 ## Authors
 Made with love at [Eggbe](http://eggbe.com).
