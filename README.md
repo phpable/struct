@@ -3,9 +3,9 @@ The lightweight library to emulate struct data type in PHP.
 
 
 ## Requirements
-* PHP >= 7.2.0
-* [Able/Helpers](https://github.com/phpable/helpers)
-* [Able/Prototypes](https://github.com/phpable/prototypes)
+* PHP >= 7.4.0
+* [able/helpers](https://github.com/phpable/helpers)
+* [able/prototypes](https://github.com/phpable/prototypes)
 
 
 ## Features 

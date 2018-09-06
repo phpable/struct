@@ -8,6 +8,6 @@ class StructA extends AStruct {
 	/**
 	 * @var array
 	 */
-	protected static $Prototype = ['field1', 'field2', 'field3'];
+	protected static array $Prototype = ['field1', 'field2', 'field3'];
 
 }
