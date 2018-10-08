@@ -108,7 +108,7 @@ use \Able\Struct;
 
 class MyParentStruct extends AStruct {
 
-	protected static $Prototype = ['field1', 'field2'];
+	protected static array $Prototype = ['field1', 'field2'];
 	
 	protected const defaultField1Value = "default value for field1";
 	protected const defaultField2Value = "default value for field2";
@@ -126,12 +126,12 @@ use \Able\Struct;
 
 class MyParentStruct extends AStruct {
 
-	protected static $Prototype = ['field1', 'field2'];
+	protected static array $Prototype = ['field1', 'field2'];
 }
 
 class MyChildStruct extends MyParentStruct {
 
-	protected static $Prototype = ['field3'];
+	protected static array $Prototype = ['field3'];
 }
 ``` 
 
@@ -193,7 +193,7 @@ use \Able\Struct;
  */
 class MyStruct extends AStruct {
 
-	protected static $Prototype = ['field1', 'field2'];
+	protected static array $Prototype = ['field1', 'field2'];
 }
 ```
 
