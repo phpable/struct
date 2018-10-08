@@ -1,5 +1,5 @@
 ## Introduction
-The lightweight library to emulate struct data type in PHP. 
+The phpABLE struct emulation library. 
 
 
 ## Requirements
@@ -9,17 +9,11 @@ The lightweight library to emulate struct data type in PHP.
 
 
 ## Features 
-The known alternative realizations mostly based on the dynamic fields definition directly during the runtime. 
-Unfortunately, it negates the type-hinting feature and makes structures completely unusable. 
-Using object properties as a way to emulate the behavior of structure fields is also inapplicable 
-because php has none obvious way to detect the visibility of an object property. 
-Also, It tends to cause additional problems and makes code hard to maintain.
-
-The mission of this library is to a realization of the structures behavior emulation 
-but make it free of known disadvantages.  
+The mission of this library is to emulate 
+the structures' behavior most naturally. 
 
 ## Install
-There's the simple way to install the ```Able/Struct``` package via [composer](http://getcomposer.org):
+There's a simple way to install the ```able/struct``` package via [composer](http://getcomposer.org):
 
 ```bash
 composer require able/struct
@@ -29,7 +23,7 @@ composer require able/struct
 ## Usage
 
 ### Basic 
-Now you can use library features anywhere in the code:
+Let's try to declare a structure:
 
 ```php
 use \Able\Struct;
@@ -40,17 +34,16 @@ class MyStruct extends AStruct {
 }
 ```
 
-And somewhere in another place: 
+Now we can use it in a siple way: 
 
 ```php
 $Struct = new MyStruct(1,2);
-
 echo $Struct->field1;
 
 //> 1
 ```
 
-Of course, it's possible to fill fields later:
+It's also possible to fill fields later:
 
 ```php
 $Struct = new MyStruct();
@@ -62,8 +55,8 @@ echo $Struct->field1;
 ```
 
 ### Mutators
-If you need to customize the structure behavior, mutators are 
-the thing you need. 
+Mutators are pretty helpful in case it needed 
+to customize the default structure behavior. 
  
 ```php
 use \Able\Struct;
@@ -82,7 +75,7 @@ class MyStruct extends AStruct {
 }
 ```
 
-And somewhere in another place: 
+Let's test it: 
 
 ```php
 $Struct = new MyStruct(1,2);
@@ -94,8 +87,7 @@ echo $Struct->field2;
 //> The mutated via getter value is: 2
 ```
 
-The easiest way to illustrate the difference between setters and getters it's 
-to write the simple code below. It will be based on the class definition from the previous sample.
+The next example just illustrates the difference between setters and getters.
 
 ```php
 $Data = $Struct->toArray();
@@ -109,10 +101,7 @@ echo $Data['field2'];
 
 
 ### Default values
-If you need to specify default values for structure fields, 
-the well-formed constants can be extremely useful. 
-
-Just take a look at the example below: 
+The default values could be set via constants. 
 
 ```php
 use \Able\Struct;
@@ -126,14 +115,10 @@ class MyParentStruct extends AStruct {
 }
 ```
 
-Please pay attention that constants have to be defined in public or projected scope only! 
-
-
 ### Inheritance
 
-The level of inheritance is not limited. It means you can have the as extensive 
-hierarchy as you really need.  It also guarantees that all fields defined at parent 
-classes will also be accessible at child classes.
+The inheritance level isn't limited. 
+All fields defined at parent classes will also be accessible at child classes.
 
 
 ```php
@@ -150,7 +135,7 @@ class MyChildStruct extends MyParentStruct {
 }
 ``` 
 
-And somewhere in another place: 
+It perfectly works: 
 
 ```php
 $Struct = new MyChildStruct(1,2,3);
@@ -184,12 +169,12 @@ To copy all data into an array:
 $Struct->toArray();
 ```
 
-To get a fields count:
+To get fields count:
 ```php
 $Struct->count();
 ```
 
-To clean structure fields values and restore its default state:
+To clean all fields and restore its default values:
 ```php
 $Struct->flush();
 ```
