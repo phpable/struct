@@ -1,5 +1,5 @@
 <?php
-namespace Able\Struct;
+namespace Able\Struct\Exceptions;
 
 use \Able\Exceptions\Abstractions\AException;
 
@@ -8,7 +8,7 @@ class EOverflow extends AException {
 	/**
 	 * @var string
 	 */
-	protected static string $template = 'Too many arguments passed to the structure: %d expected but %d given.';
+	protected static string $template = 'Too many arguments passed: %d expected but %d given.';
 
 	/**
 	 * EArgumentsMismatch constructor.

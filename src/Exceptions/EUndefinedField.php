@@ -1,14 +1,14 @@
 <?php
-namespace Able\Struct;
+namespace Able\Struct\Exceptions;
 
 use \Able\Exceptions\Abstractions\AException;
 
-class EInvalidFieldName extends AException {
+class EUndefinedField extends AException {
 
 	/**
 	 * @var string
 	 */
-	protected static string $template = 'Invalid or empty structure field name: %s!';
+	protected static string $template = 'Undefined structure field "%s"!';
 
 	/**
 	 * @param string $name

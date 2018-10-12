@@ -13,6 +13,10 @@ use \Able\Reglib\Regex;
 use \Able\Helpers\Arr;
 use \Able\Helpers\Src;
 
+use \Able\Struct\Exceptions\EOverflow;
+use \Able\Struct\Exceptions\EUndefinedField;
+use \Able\Struct\Exceptions\EInvalidFieldName;
+
 abstract class AStruct
 	implements IGettable, ISettable, IArrayable {
 
