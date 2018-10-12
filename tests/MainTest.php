@@ -29,13 +29,13 @@ class MainTest extends TestCase {
 
 		$this->assertEquals(null, $Struct->field1);
 		$this->assertEquals('two', $Struct->field2);
-		$this->assertEquals(null, $Struct->field3);
+		$this->assertEquals('f3', $Struct->field3);
 
 		$Struct->field1 = 'one';
 
 		$this->assertEquals('one', $Struct->field1);
 		$this->assertEquals('two', $Struct->field2);
-		$this->assertEquals(null, $Struct->field3);
+		$this->assertEquals('f3', $Struct->field3);
 
 		$Struct->field3 = 'three';
 
@@ -83,5 +83,25 @@ class MainTest extends TestCase {
 	public final function testEInvalidFieldName(){
 		$this->expectException(EInvalidFieldName::class);
 		$Struct = new StructE('one', 'two', 'three', '_');
+	}
+
+	public final function testDefaultValues(){
+		$Struct = new StructB();
+		$this->assertSame($Struct->toArray(), [
+			'field1'  => null,
+			'field2' => null,
+			'field3' => 'f3',
+			'field4' => 'f4',
+			'field5' => null
+		]);
+
+		$Struct = new StructB('one', null, null, 'four');
+		$this->assertSame($Struct->toArray(), [
+			'field1'  => 'one',
+			'field2' => null,
+			'field3' => 'f3',
+			'field4' => 'four',
+			'field5' => null
+		]);
 	}
 }

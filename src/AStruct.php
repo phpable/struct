@@ -54,7 +54,6 @@ abstract class AStruct
 		 * Fill structure fields by given values.
 		 * Mutators are doing their work.
 		 */
-
 		foreach (array_values(array_slice(func_get_args(), 0, count($Aggregated))) as $index => $value){
 			if (!is_null($value)) {
 				$this->__set(Arr::value($Aggregated, $index), $value);
@@ -71,9 +70,9 @@ abstract class AStruct
 		 * Fill structure by default values.
 		 * The default value can be specified by a specially formatted constant.
 		 */
-		foreach (static::$Prototype as $name){
-			$this->Data[$name] = defined($constant = static::class
-				. '::default' . Src::tcm($name) . 'Value') ? constant($constant) : null;
+		foreach (static::aggregate('Prototype') as $name){
+			$this->Data[$name] = defined($constant = sprintf('static::default%sValue',
+				Src::tcm($name))) ? constant($constant) : null;
 		}
 
 		return $this;
