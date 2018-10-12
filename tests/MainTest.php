@@ -9,6 +9,7 @@ use \Able\Struct\Tests\Examples\StructC;
 use \Able\Struct\Tests\Examples\StructD;
 use \Able\Struct\Tests\Examples\StructE;
 
+use \Able\Struct\EOverflow;
 use \Able\Struct\EUndefinedField;
 use \Able\Struct\EInvalidFieldName;
 
@@ -103,5 +104,11 @@ class MainTest extends TestCase {
 			'field4' => 'four',
 			'field5' => null
 		]);
+	}
+
+	public final function testArguments() {
+		$this->expectException(EOverflow::class);
+		$Struct = new StructA('field1', 'field2', 'field4', 'filed5');
+
 	}
 }

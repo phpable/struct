@@ -35,6 +35,7 @@ abstract class AStruct
 	 * @param mixed $args, ...
 	 * @throws EInvalidFieldName
 	 * @throws EUndefinedField
+	 * @throws EOverflow
 	 */
 	public function __construct($args = []) {
 		$this->Data = Arr::combine(array_map(function($name) {
@@ -44,6 +45,14 @@ abstract class AStruct
 
 			throw new EInvalidFieldName($name);
 		}, $Aggregated  = static::aggregate('Prototype')));
+
+		/**
+		 * Ignoring extra arguments passed to the constructor
+		 * can cause hardly recognizable errors.
+		 */
+		if (func_num_args() > count($Aggregated)) {
+			throw new EOverflow(func_num_args(), count($Aggregated));
+		}
 
 		/**
 		 * Fill structure by default values.
