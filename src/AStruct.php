@@ -34,6 +34,7 @@ abstract class AStruct
 	/**
 	 * @param mixed $args, ...
 	 * @throws EInvalidFieldName
+	 * @throws EUndefinedField
 	 */
 	public function __construct($args = []) {
 		$this->Data = Arr::combine(array_map(function($name) {
