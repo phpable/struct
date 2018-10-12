@@ -13,8 +13,6 @@ use \Able\Reglib\Regex;
 use \Able\Helpers\Arr;
 use \Able\Helpers\Src;
 
-use \Exception;
-
 abstract class AStruct
 	implements IGettable, ISettable, IArrayable {
 
@@ -23,7 +21,7 @@ abstract class AStruct
 
 	/**
 	 * Strusture fields definition.
-	 * @var array
+	 * @var string[]
 	 */
 	protected static array $Prototype = [];
 
@@ -35,7 +33,7 @@ abstract class AStruct
 
 	/**
 	 * @param mixed $args, ...
-	 * @throws Exception
+	 * @throws EInvalidFieldName
 	 */
 	public function __construct($args = []) {
 		$this->Data = Arr::combine(array_map(function($name) {
@@ -43,7 +41,7 @@ abstract class AStruct
 				return strtolower($name);
 			}
 
-			throw new Exception('Invalid or empty structure field name!');
+			throw new EInvalidFieldName($name);
 		}, $Aggregated  = static::aggregate('Prototype')));
 
 		/**
@@ -53,7 +51,7 @@ abstract class AStruct
 
 		/**
 		 * Fill structure fields by given values.
-		 * Mutators are fully accessible here so no reason to worry.
+		 * Mutators are doing their work.
 		 */
 
 		foreach (array_values(array_slice(func_get_args(), 0, count($Aggregated))) as $index => $value){
@@ -81,30 +79,32 @@ abstract class AStruct
 	}
 
 	/**
-	 * Sets a structure field value directly or via the mutators mechanics.
+	 * Sets a structure field value directly
+	 * or following the mutators mechanics.
 	 *
 	 * @param string $name
 	 * @param mixed $value
-	 * @throws Exception
+	 * @throws EUndefinedField
 	 */
 	public final function __set(string $name, $value): void {
 		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
-			throw new Exception(sprintf('Undefined structure member "%s"!', $name));
+			throw new EUndefinedField($name);
 		}
 
 		$this->Data[$name] = $this->mutate('set', $name, $value);
 	}
 
 	/**
-	 * Retrieves a structure field value directly or via the mutators mechanics.
+	 * Retrieves a structure field value directly
+	 * or following the mutators mechanics.
 	 *
 	 * @param string $name
-	 * @throws Exception
+	 * @throws EUndefinedField
 	 * @return mixed
 	 */
 	public final function __get(string $name) {
 		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
-			throw new Exception('Undefined structure member "' . $name . '"!');
+			throw new EUndefinedField($name);
 		}
 
 		return $this->mutate('get', $name, $this->Data[$name]);
@@ -112,11 +112,11 @@ abstract class AStruct
 
 	/**
 	 * @param string $name
-	 * @throws Exception
+	 * @throws EUndefinedField
 	 */
 	public final function __unset(string $name): void {
 		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
-			throw new Exception(sprintf('Undefined structure member "%s"!', $name));
+			throw new EUndefinedField($name);
 		}
 
 		$this->Data[$name] = null;
@@ -154,7 +154,7 @@ abstract class AStruct
 	/**
 	 * @return int
 	 */
-	public final function count():int {
+	public final function count(): int {
 		return count($this->Data);
 	}
 }
