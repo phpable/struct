@@ -4,7 +4,7 @@ The lightweight library to emulate struct data type in PHP.
 
 ## Requirements
 * PHP >= 7.2.0
-* [Eggbe/Helpers](https://github.com/eggbe/helpers)
+* [Able/Helpers](https://github.com/phpable/helpers)
 * [Able/Prototypes](https://github.com/phpable/prototypes)
 
 
