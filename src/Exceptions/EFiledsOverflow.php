@@ -3,7 +3,7 @@ namespace Able\Struct\Exceptions;
 
 use \Able\Exceptions\Abstractions\AException;
 
-class EOverflow extends AException {
+class EFiledsOverflow extends AException {
 
 	/**
 	 * @var string

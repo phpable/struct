@@ -13,7 +13,7 @@ use \Able\Reglib\Regex;
 use \Able\Helpers\Arr;
 use \Able\Helpers\Src;
 
-use \Able\Struct\Exceptions\EOverflow;
+use \Able\Struct\Exceptions\EFiledsOverflow;
 use \Able\Struct\Exceptions\EUndefinedField;
 use \Able\Struct\Exceptions\EInvalidFieldName;
 
@@ -39,7 +39,7 @@ abstract class AStruct
 	 * @param mixed $args, ...
 	 * @throws EInvalidFieldName
 	 * @throws EUndefinedField
-	 * @throws EOverflow
+	 * @throws EFiledsOverflow
 	 */
 	public function __construct($args = []) {
 		$this->Data = Arr::combine(array_map(function($name) {
@@ -55,7 +55,7 @@ abstract class AStruct
 		 * can cause hardly recognizable errors.
 		 */
 		if (func_num_args() > count($Aggregated)) {
-			throw new EOverflow(func_num_args(), count($Aggregated));
+			throw new EFiledsOverflow(func_num_args(), count($Aggregated));
 		}
 
 		/**
