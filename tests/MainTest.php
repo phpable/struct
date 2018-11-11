@@ -9,7 +9,7 @@ use \Able\Struct\Tests\Examples\StructC;
 use \Able\Struct\Tests\Examples\StructD;
 use \Able\Struct\Tests\Examples\StructE;
 
-use \Able\Struct\Exceptions\EFiledsOverflow;
+use \Able\Struct\Exceptions\EDataOverflow;
 use \Able\Struct\Exceptions\EUndefinedField;
 use \Able\Struct\Exceptions\EInvalidFieldName;
 
@@ -107,7 +107,7 @@ class MainTest extends TestCase {
 	}
 
 	public final function testArguments() {
-		$this->expectException(EFiledsOverflow::class);
+		$this->expectException(EDataOverflow::class);
 		$Struct = new StructA('field1', 'field2', 'field4', 'filed5');
 	}
 }
