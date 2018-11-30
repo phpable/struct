@@ -78,7 +78,7 @@ abstract class AStruct
 	 * @param string ...$names
 	 * @return AStruct
 	 */
-	public function flush(string ...$names): AStruct {
+	public final function flush(string ...$names): AStruct {
 
 		/**
 		 * Fill structure by default values.
