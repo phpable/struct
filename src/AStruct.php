@@ -75,15 +75,18 @@ abstract class AStruct
 	}
 
 	/**
+	 * @param string ...$names
 	 * @return AStruct
 	 */
-	public function flush(): AStruct {
+	public function flush(string ...$names): AStruct {
 
 		/**
 		 * Fill structure by default values.
 		 * The default value can be specified by a specially formatted constant.
 		 */
-		foreach (static::aggregate('Prototype') as $name){
+		foreach (array_filter(static::aggregate('Prototype'), function($_) use ($names) {
+				return empty($names) || in_array($_, $names); }) as $name){
+
 			$this->Data[$name] = defined($constant = sprintf('static::default%sValue',
 				Src::tcm($name))) ? constant($constant) : null;
 		}
