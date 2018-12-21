@@ -52,17 +52,7 @@ echo $Struct->field1;
 //> 1
 ```
 
-An alternate way of instant initialization is also possible:
-
-```php
-$Struct = new MyStruct([1, 2]);
-
-echo $Struct->field1;
-
-//> 1
-```
-
-Of course, we also can fill fields later:
+Of course, it's possible to fill fields later:
 
 ```php
 $Struct = new MyStruct();
@@ -74,7 +64,7 @@ echo $Struct->field1;
 ```
 
 ### Mutators
-If you need to customize the structure behavior, well mutators are 
+If you need to customize the structure behavior, mutators are 
 the thing you need. 
  
 ```php
@@ -138,7 +128,7 @@ class MyParentStruct extends AStruct {
 }
 ```
 
-Please pay attention that constant has to be defined in public or projected scope. 
+Please pay attention that constants have to be defined in public or projected scope only! 
 
 
 ### Inheritance
@@ -223,7 +213,6 @@ class MyStruct extends AStruct {
 	protected static $Prototype = ['field1', 'field2'];
 }
 ```
-
 
 ## Authors
 Made with love at [Eggbe](http://eggbe.com).

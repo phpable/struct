@@ -53,7 +53,8 @@ abstract class AStruct
 		 * Fill structure fields by given values.
 		 * Mutators are fully accessible here so no reason to worry.
 		 */
-		foreach (array_values(array_slice(Arr::simplify(func_get_args()), 0, count($Aggregated))) as $index => $value){
+
+		foreach (array_values(array_slice(func_get_args(), 0, count($Aggregated))) as $index => $value){
 			if (!is_null($value)) {
 				$this->__set(Arr::value($Aggregated, $index), $value);
 			}

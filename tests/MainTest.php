@@ -13,17 +13,6 @@ class MainTest extends TestCase {
 	/**
 	 * @throws \Exception
 	 */
-	public final function testCreateAndFillWithArray() {
-		$Struct = new StructA(['one', 'two', 'three']);
-
-		$this->assertEquals('one', $Struct->field1);
-		$this->assertEquals('two', $Struct->field2);
-		$this->assertEquals('three', $Struct->field3);
-	}
-
-	/**
-	 * @throws \Exception
-	 */
 	public final function testCreateAndFillInstantly() {
 		$Struct = new StructA('one', 'two', 'three');
 
@@ -60,20 +49,6 @@ class MainTest extends TestCase {
 	/**
 	 * @throws \Exception
 	 */
-	public final function testExtendCreateAndFillWithArray() {
-		$Struct = new StructB(['one', 'two', 'three', 'four', 'five']);
-
-		$this->assertEquals('one', $Struct->field1);
-		$this->assertEquals('two', $Struct->field2);
-		$this->assertEquals('three', $Struct->field3);
-		$this->assertEquals('four', $Struct->field4);
-		$this->assertEquals('five', $Struct->field5);
-	}
-
-
-	/**
-	 * @throws \Exception
-	 */
 	public final function testExtendCreateAndFillInstantly() {
 		$Struct = new StructB('one', 'two', 'three', 'four', 'five');
 
@@ -88,7 +63,7 @@ class MainTest extends TestCase {
 	 * @throws \Exception
 	 */
 	public final function testSetters(){
-		$Struct = new StructC(['one', 'two', 'three', 'four', 'five']);
+		$Struct = new StructC('one', 'two', 'three', 'four', 'five');
 
 		$this->assertEquals('more than one', $Struct->field1);
 		$this->assertEquals('two', $Struct->field2);
@@ -101,7 +76,7 @@ class MainTest extends TestCase {
 	 * @throws \Exception
 	 */
 	public final function testGetters(){
-		$Struct = new StructD(['one', 'two', 'three', 'four', 'five']);
+		$Struct = new StructD('one', 'two', 'three', 'four', 'five');
 		$this->assertEquals('one', $Struct->field1);
 		$this->assertEquals('two hundreds', $Struct->field2);
 		$this->assertEquals('three', $Struct->field3);
