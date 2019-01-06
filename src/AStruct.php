@@ -87,7 +87,7 @@ abstract class AStruct
 	 */
 	public final function __set(string $name, $value) {
 		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
-			throw new \Exception('Undefined structure member "' . $name . '"!');
+			throw new \Exception(sprintf('Undefined structure member "%s"!', $name));
 		}
 
 		$this->Data[$name] = $this->mutate('set', $name, $value);
@@ -114,7 +114,7 @@ abstract class AStruct
 	 */
 	public final function __unset(string $name){
 		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
-			throw new \Exception('Undefined structure member "' . $name . '"!');
+			throw new \Exception(sprintf('Undefined structure member "%s"!', $name));
 		}
 
 		$this->Data[$name] = null;
