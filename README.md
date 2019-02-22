@@ -9,19 +9,17 @@ The lightweight library to emulate struct data type in PHP.
 
 
 ## Features 
-The most of existing realizations in this area based on the dynamical fields definition 
-directly during the runtime. Unfortunately, it negates the type-hinting feature and makes 
-structures completely unusable. Using object properties as a way to emulate the behavior 
-of structure fields is also inapplicable because php has none obvious way to detect 
-visibility of an object property. Also, It tends to cause additional problems 
-and makes code hard to maintain.
+The known alternative realizations mostly based on the dynamic fields definition directly during the runtime. 
+Unfortunately, it negates the type-hinting feature and makes structures completely unusable. 
+Using object properties as a way to emulate the behavior of structure fields is also inapplicable 
+because php has none obvious way to detect the visibility of an object property. 
+Also, It tends to cause additional problems and makes code hard to maintain.
 
-The mission of this library is to provide 
-another one realization of the structures behavior emulation but make it free 
-of known disadvantages.  
+The mission of this library is to a realization of the structures behavior emulation 
+but make it free of known disadvantages.  
 
 ## Install
-Here's the simpler way to install the Able/Struct package via [composer](http://getcomposer.org):
+There's the simple way to install the ```Able/Struct``` package via [composer](http://getcomposer.org):
 
 ```bash
 composer require able/struct
@@ -213,12 +211,6 @@ class MyStruct extends AStruct {
 	protected static $Prototype = ['field1', 'field2'];
 }
 ```
-
-## Authors
-Made with love at [Eggbe](http://eggbe.com).
-
-## Feedback 
-We always welcome your feedback at [github@eggbe.com](mailto:github@eggbe.com).
 
 ## License
 This package is released under the [MIT license](https://github.com/phpable/struct/blob/master/LICENSE).

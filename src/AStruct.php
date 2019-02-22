@@ -8,7 +8,7 @@ use \Able\Prototypes\TMutatable;
 use \Able\Prototypes\IArrayable;
 use \Able\Prototypes\TAggregatable;
 
-use \Able\Reglib\Reglib;
+use \Able\Reglib\Regex;
 
 use \Able\Helpers\Arr;
 use \Able\Helpers\Src;
@@ -37,7 +37,7 @@ abstract class AStruct
 	 */
 	public function __construct($args = []) {
 		$this->Data = Arr::combine(array_map(function($name) {
-			if (preg_match('/^' . Reglib::VAR . '$/', $name)) {
+			if (preg_match('/^' . Regex::RE_VARIABLE . '$/', $name)) {
 				return strtolower($name);
 			}
 
