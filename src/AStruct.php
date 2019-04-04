@@ -4,8 +4,10 @@ namespace Able\Struct;
 use \Able\Prototypes\IGettable;
 use \Able\Prototypes\ISettable;
 use \Able\Prototypes\ICountable;
-use \Able\Prototypes\TMutatable;
 use \Able\Prototypes\IArrayable;
+
+use \Able\Prototypes\TDefault;
+use \Able\Prototypes\TMutatable;
 use \Able\Prototypes\TAggregatable;
 
 use \Able\Reglib\Regex;
@@ -22,9 +24,10 @@ abstract class AStruct
 
 	use TAggregatable;
 	use TMutatable;
+	use TDefault;
 
 	/**
-	 * Strusture fields definition.
+	 * Fields definition.
 	 * @var string[]
 	 */
 	protected static array $Prototype = [];
@@ -37,6 +40,7 @@ abstract class AStruct
 
 	/**
 	 * @param mixed $args, ...
+	 *
 	 * @throws EInvalidFieldName
 	 * @throws EUndefinedField
 	 * @throws EDataOverflow
@@ -87,8 +91,7 @@ abstract class AStruct
 		foreach (array_filter(static::aggregate('Prototype'), function($_) use ($names) {
 				return empty($names) || in_array($_, $names); }) as $name){
 
-			$this->Data[$name] = defined($constant = sprintf('static::default%sValue',
-				Src::tcm($name))) ? constant($constant) : null;
+			$this->Data[$name] = $this->default($name);
 		}
 
 		return $this;
@@ -100,6 +103,7 @@ abstract class AStruct
 	 *
 	 * @param string $name
 	 * @param mixed $value
+	 *
 	 * @throws EUndefinedField
 	 */
 	public final function __set(string $name, $value): void {
@@ -115,8 +119,9 @@ abstract class AStruct
 	 * or following the mutators mechanics.
 	 *
 	 * @param string $name
-	 * @throws EUndefinedField
 	 * @return mixed
+	 *
+	 * @throws EUndefinedField
 	 */
 	public final function __get(string $name) {
 		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
@@ -174,5 +179,3 @@ abstract class AStruct
 		return count($this->Data);
 	}
 }
-
-
