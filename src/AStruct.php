@@ -91,7 +91,7 @@ abstract class AStruct
 		foreach (array_filter(static::aggregate('Prototype'), function($_) use ($names) {
 				return empty($names) || in_array($_, $names); }) as $name){
 
-			$this->Data[$name] = $this->default($name);
+			$this->Data[strtolower($name)] = $this->default($name);
 		}
 
 		return $this;
