@@ -48,7 +48,7 @@ abstract class AStruct
 	public function __construct($args = []) {
 		$this->Data = Arr::combine(array_map(function($name) {
 			if (preg_match('/^' . Regex::RE_VARIABLE . '$/', $name)) {
-				return strtolower($name);
+				return $name;
 			}
 
 			throw new EInvalidFieldName($name);
@@ -107,7 +107,7 @@ abstract class AStruct
 	 * @throws EUndefinedField
 	 */
 	public final function __set(string $name, $value): void {
-		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
+		if (!Arr::has($this->Data, $name)){
 			throw new EUndefinedField($name);
 		}
 
@@ -124,7 +124,7 @@ abstract class AStruct
 	 * @throws EUndefinedField
 	 */
 	public final function __get(string $name) {
-		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
+		if (!Arr::has($this->Data, $name)){
 			throw new EUndefinedField($name);
 		}
 
@@ -136,7 +136,7 @@ abstract class AStruct
 	 * @throws EUndefinedField
 	 */
 	public final function __unset(string $name): void {
-		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
+		if (!Arr::has($this->Data, $name)) {
 			throw new EUndefinedField($name);
 		}
 
@@ -148,7 +148,7 @@ abstract class AStruct
 	 * @return bool
 	 */
 	public final function __isset(string $name): bool {
-		return Arr::has($this->Data, strtolower(trim($name)));
+		return Arr::has($this->Data, $name);
 	}
 
 	/**
