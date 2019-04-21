@@ -16,11 +16,12 @@ use \Able\Struct\Exceptions\EInvalidFieldName;
 class MainTest extends TestCase {
 
 	public final function testCreateAndFillInstantly() {
-		$Struct = new StructA('one', 'two', 'three');
+//		$Struct = new StructA('one', 'two', 'three');
+		$Struct = new StructA('one', 'two');
 
 		$this->assertEquals('one', $Struct->field1);
 		$this->assertEquals('two', $Struct->field2);
-		$this->assertEquals('three', $Struct->field3);
+		$this->assertEquals('f3', $Struct->field3);
 	}
 
 	public final function testCreateAndFillLater() {

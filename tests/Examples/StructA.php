@@ -5,7 +5,10 @@ use \Able\Struct\AStruct;
 
 class StructA extends AStruct {
 
-	protected const defaultField3Value = 'f3';
+	/**
+	 * @const string
+	 */
+	protected const defaultfield3Value = 'f3';
 
 	/**
 	 * @var array
