@@ -8,7 +8,7 @@ class StructA extends AStruct {
 	/**
 	 * @const string
 	 */
-	protected const defaultfield3Value = 'f3';
+	protected const defaultField3Value = 'f3';
 
 	/**
 	 * @var array

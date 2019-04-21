@@ -6,7 +6,7 @@ class StructB extends StructA {
 	/**
 	 * @const string
 	 */
-	protected const defaultfield4Value = 'f4';
+	protected const defaultField4Value = 'f4';
 
 	/**
 	 * @var array
