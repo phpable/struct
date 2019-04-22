@@ -91,7 +91,12 @@ abstract class AStruct
 		foreach (array_filter(static::aggregate('Prototype'), function($_) use ($names) {
 				return empty($names) || in_array($_, $names); }) as $name){
 
-			$this->{$name} = $this->mutate('init', $name, $this->default(Src::tcm($name)));
+			/**
+			 * We have to set default values to structure fields directly
+			 * to avoid the type verification process is possible via setters.
+			 */
+			$this->Data[$name] = $this->mutate('init', $name,
+				$this->default(Src::tcm($name)));
 		}
 
 		return $this;
