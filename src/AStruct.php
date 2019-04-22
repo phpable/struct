@@ -144,7 +144,7 @@ abstract class AStruct
 			throw new EUndefinedField($name);
 		}
 
-		$this->Data[$name] = null;
+		$this->Data[$name] = $this->flush($name);
 	}
 
 	/**
