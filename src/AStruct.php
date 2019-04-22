@@ -89,14 +89,13 @@ abstract class AStruct
 		 * The default value can be specified by a specially formatted constant.
 		 */
 		foreach (array_filter(static::aggregate('Prototype'), function($_) use ($names) {
-				return empty($names) || in_array($_, $names); }) as $name){
+				return empty($names) || in_array($_, $names); }) as $name) {
 
 			/**
 			 * We have to set default values to structure fields directly
 			 * to avoid the type verification process is possible via setters.
 			 */
-			$this->Data[$name] = $this->mutate('init', $name,
-				$this->default(Src::tcm($name)));
+			$this->Data[$name] = $this->default($name);
 		}
 
 		return $this;
