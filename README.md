@@ -6,6 +6,8 @@ The phpABLE struct emulation library.
 * PHP >= 8.0.0
 * [able/helpers](https://github.com/phpable/helpers)
 * [able/prototypes](https://github.com/phpable/prototypes)
+* [able/exceptions](https://github.com/phpable/exceptions)
+* [able/reglib](https://github.com/phpable/reglib)
 
 
 ## Features 

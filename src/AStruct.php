@@ -3,7 +3,6 @@ namespace Able\Struct;
 
 use \Able\Prototypes\IGettable;
 use \Able\Prototypes\ISettable;
-use \Able\Prototypes\ICountable;
 use \Able\Prototypes\IArrayable;
 
 use \Able\Prototypes\TDefault;
@@ -13,7 +12,6 @@ use \Able\Prototypes\TAggregatable;
 use \Able\Reglib\Regex;
 
 use \Able\Helpers\Arr;
-use \Able\Helpers\Src;
 
 use \Able\Struct\Exceptions\EDataOverflow;
 use \Able\Struct\Exceptions\EUndefinedField;
