@@ -45,7 +45,7 @@ abstract class AStruct
 	 * @throws EUndefinedField
 	 * @throws EDataOverflow
 	 */
-	public function __construct($args = []) {
+	public function __construct(mixed $args = []) {
 		$this->Data = Arr::combine(array_map(function($name) {
 			if (preg_match('/^' . Regex::RE_VARIABLE . '$/', $name)) {
 				return strtolower($name);
@@ -127,7 +127,7 @@ abstract class AStruct
 	 *
 	 * @throws EUndefinedField
 	 */
-	public final function __get(string $name) {
+	public final function __get(string $name): mixed {
 		if (!Arr::has($this->Data, $name = strtolower(trim($name)))){
 			throw new EUndefinedField($name);
 		}

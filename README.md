@@ -3,7 +3,7 @@ The phpABLE struct emulation library.
 
 
 ## Requirements
-* PHP >= 7.4.0
+* PHP >= 8.0.0
 * [able/helpers](https://github.com/phpable/helpers)
 * [able/prototypes](https://github.com/phpable/prototypes)
 
