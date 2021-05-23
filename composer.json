@@ -14,7 +14,7 @@
 		"php": ">=8.0.0",
 		"able/prototypes": "^1.1.1",
 		"able/exceptions": "^0.7.4",
-		"able/helpers": "^0.8.7",
+		"able/helpers": "^0.9.0",
 		"able/reglib": "^0.5.1"
 	},
 	"require-dev": {
